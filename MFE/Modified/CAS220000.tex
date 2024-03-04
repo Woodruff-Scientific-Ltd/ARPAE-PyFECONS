@@ -1,0 +1,42 @@
+%12/7/2023 need an iteration or two
+
+\subsection{Cost Category 22: Heat Island Plant Equipment}
+
+This category is most dependent on the heat island technology being considered, because the sub-account descriptions and costs depend heavily on the coolant used and whether the subsystems are factory-produced or constructed onsite. \\
+
+For the mechanical components, costs are determined by making a CAD drawing of the components  and determining the volume of the component.  The following equation is then used to determine 
+component costs from the volumes: $\Sigma_{i} C_{i} = V_{i}  \rho_{i}c_{i}$, where $\rho$ is  the mass density in kg/m$^{3}$ and $c_{i}$ is the cost per unit mass in \$/kg (see Table \ref{tab:materials})  with manufacturing factor applied.
+
+\begin{table}[h!]
+\centering
+\resizebox{0.7\linewidth}{!}{%
+\begin{tabular}{lccccc}
+\hline
+Material & \(\rho\) (kg/$m^{3}$) & \(c_{\text{raw}}\) (\$/kg or \$/kAm) & Manufacturing Factor & \(\sigma\) (MPa)& \(c\) (\$/kg or \$/kAm)\\
+\hline
+FS & 7470 & 10 & 3 & 450 & \\
+Pb & 9400 & 2.4 & 1.5 & & \\
+Li$_4$SiO$_4$ & 2390 & 1 & 2 & & \\
+Flibe & Fliberho & & & & Flibec \\
+W & 19300 & 100 & 3 & & \\
+Li & 534 & 70 & 1.5 & & \\
+BFS & 7800 & 30 & 2 & & \\
+PbLi & 8594.0 & & & & 12.82 \\
+SiC & 3200 & 14.49 & 3 & & \\
+Inconel & 8440 & 46 & 3 & & \\
+Cu & 7300 & 10.2 & 3 & & \\
+Polyimide & 1430 & 100 & 3 & & \\
+YBCO & 6200 & & & & 55 \\
+Concrete & 2300 & 0.52 & 2 & & \\
+SS316 & 7860 & 2 & 2 & 900 & \\
+Nb$_3$Sn & & & & & 5 \\
+Incoloy & 8170 & 4 & 2 & & \\
+GdBCO & & & & & \\
+He & & & & & \\
+NbTi & & & & & \\
+\hline
+\end{tabular}}
+\caption{Properties of materials used in fusion reactors.}
+\label{tab:materials}
+\end{table}
+
