@@ -1,0 +1,85 @@
+\newpage 
+
+\section{Cost of Electricity} 
+
+ Contributors to LCOE projections are given by: 
+ \begin{equation} 
+ LCOE = \frac{(C_{AC} + (C_{OM} + C_{F})(1+y)^Y)}{(8760.P_E.p_a)} 
+ \label{eq:coe}
+\end{equation} 
+where C$_{AC}$ [USD/year] is the annual capital cost charge (entailing the total capital cost of the plant (TCC (USD) multiplied by the Fixed Charge Rate (FCR (/year)), C$_{OM}$ [USD/year] is the annual operations and maintenance cost, C$_{SCR}$ [USD/year] is the annual scheduled component replacement costs, C$_{F}$ [USD/year] is the annual fuel costs, $y$ is the annual fractional increase in fuel costs over the expected lifetime of the plant $Y$ [years], P$_{E}$ [MWe] is the electric power of the plant, p$_{a}$ is the plant availability (typically 0.6-0.9).  A small charge used to be imposed to build up a fund to cover end-of-life Decontamination and Decommissioning, f$_{DD}$ (USD/kWh).  Over the life of the plant, {f} is accumulated to yield a fund, {F} (USD), which can be applied to cover the costs of interim storage of radwaste and final DD expenses.  For a 1-Gwe-class plant, {f} at the level of a few 10$^{-4}$ USD/kWh is thought to be sufficient; this value should be revisited for plants in the 100-MWe class. However, the Decommissioning costs are now included in the direct costs COst Categy 58, so are omitted here.\\
+
+\input{NovatronModified/CAS700000.tex}
+\input{NovatronModified/CAS800000.tex}
+\input{NovatronModified/CAS900000.tex}
+
+\subsection{Annual Capital Cost Charge} 
+Consists of: Capital recovery factor (or constant dollar FCR), $f_{cr}$ multiplied by the total capital cost. This is a function of the cost of money and the period over which the investment must be paid off (see 2019 NETL report \cite{NETL2019a}). In this case, it is the lifetime of the plant, plifetime years, plus the construction time, constructionTime years. Thus, the capital recovery factor is calculated from 
+
+\begin{equation}
+    C(x,N) = \frac{x(1+x)^N}{(1+x)^N-1} = \left[ \sum_{n=1}^N \frac{1}{(1+x)^N}] \right] ^{-1},
+    \label{eq:C}
+\end{equation}
+
+where 
+
+\begin{equation}
+    x = i_cf_c + i_pf_p +(1-t)i_df_d
+\end{equation}
+
+is the effective cost of money. Here, $i_c$ is the rae of return on common stock, $f_c$ is the fraction of capital form common stock, $i_p$ is the rate of return of preferred stock, $f_p$ is the fraction of capital from preferred stock, $i_d$ is the nterest rate on deb, and $f_d$ is the capital from debt. 
+
+From here, the fixed charge rate can be calculated as 
+\begin{equation}
+    f_{cr} = \frac{Ck}{(1-t)} - \frac{td}{(1-t)} + t_p + r,
+\end{equation}
+
+where $C$ is the capital recovery factor (\ref{eq:C}), $k$ is the adjustment for investment tax credit, $t$ is the effective income tax rate, $d$ is the levelized tax depreciation, $t_p$ is the property tax rate and $r$ is the levelized interim replacement cost. For this power plant, see \ref{tab:ec_vals} for values.
+
+Applying these calculations to this power plant with a lifetime of plifetime yields $f_{cr} = $ fcr.
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{cc|cc}
+    \hline
+      $N$ (plant life)  & plifetime & $t$ (construction period) & constructionTime\\
+       $i_c$  & 0.1 & $t_p$ (property tax rate)& 0\\
+        $i_p$ & 0 & $x_1$ (pre-tax)& 0.073\\
+        $i_d$ & 0.05 & $x$ (post-tax)& 0.065\\
+        $f_c$ & 0.45 & $x_r$ (real)& 0.045\\
+        $f_p$ & 0 & $k$ & 1\\
+        $f_d$ & 0.55 & $C(x,N)$ & 0.077\\
+        $i$ (general inflation) & 0.02 & $C(x_r,N)$ & 0.061\\
+        $e$  (escalation)& 0.02 & $r$ (interim replacement)& 0\\
+        $e_r$ (real escalation) & 0 & $f$ (depreciable fraction of TCC)& 0.881\\
+        $t_s$ (income tax 1) & 0.06 & $d$ (levelized depreciation)& 0.036\\
+        $t_f$ (income tax 2) & 0.21 & $f_{cr}$ & 0.0910\\
+        $t$ (effective income tax) & 0.257 & $f_{cr0}$ & 0.0722\\
+    \hline    
+    \end{tabular}
+    \caption{Values used in calculation of capital recovery factor  $f_{cr}$, the effective cost of money, $x$, and the fixed charge rate, $R$.}
+    \label{tab:ec_vals}
+    \label{tab:my_label}
+\end{table}
+
+By multiplying the capital recovery factor, $f_{cr}$ by the total capital cost, $C_{99}$, the annual capital cost charge is calculated to be CAC M USD.
+
+\subsection{Levelized Cost of Electricity} \\ 
+
+\begin{table}[h!] 
+\begin{tabular}{l c c } 
+Capital cost, $C_{AC}$ &     M\$/annum    &    C900000      \\ 
+Scheduled Replacement Costs, $C_{SCR}$  &     M\$/annum    &  C750000   \\ 
+Operations and Maintenance Costs, $C_{OM}$ & M\$/annum  &      C700000 \\ 
+Fuel Costs, $C_{F}$ & M\$/annum  &       C800000 \\ 
+    \end{tabular} 
+    \caption{Cost components in the LCOE calcualtion.}
+    \label{tab:lcoe} 
+\end{table} 
+
+Following equation \ref{eq:coe}, the LCOE for 10th of a kind (TOAK) is C1000000 c/kWh. 
+
+\subsection{Levelized Cost of Electricity Nth of a Kind (NOAK)} \\ 
+
+It is possible to distinguish between the First of a Kind (FOAK) power plant, which might function as a Demo, and more mature 10th of a Kind (TOAK), the latter incorporating learning credits in the COE estimate, consistent with U.S. fusion-reactor design-community practice. The ARIES study, like STARFIRE \cite{BAK80} and most other U.S. fusion-reactor designs reported in the last decade, assumes FPC unit costs consistent with these learning-curve \cite{Hir64,Arg90} credits, rather than first-of-a-kind unit costs (including R\&D) appropriate for ITER \cite{Ite89} or some other reported designs \cite{Coo89b}. An 80 \% learning curve ({\it {\it i.e.},} 0.80 progress ratio, $p$), as used for ARIES, represents the expectation that each doubling of production represents a \hbox{$p\simeq$ 0.8} reduction in unit costs. A tenth-of-a-kind reactor represents, nominally, $\simeq$3.3 doubling of production or $p^{(ln 10/ln 2)}\simeq$ 50 \% cost reduction relative to first-of-a-kind FPC costs.  Of course, the actual production experience varies \cite{Arg90}.  Learning credits are not applied to BOP items, consistent with mature industrial production in which the learning credits have already been wrung out.  For similar reasons, a 94 \% learning curve is recommended for advanced fission cost estimates \cite{Del93}.   
