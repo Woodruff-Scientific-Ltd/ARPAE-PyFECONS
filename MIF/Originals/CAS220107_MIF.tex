@@ -5,7 +5,9 @@ This category covers an extensive range of power supply systems critical for ope
 
 \begin{itemize}
     \item Cost Category 22.07.01 High-Voltage Power Supplies. Essential for driving heating systems like neutral beam injectors, which heat the plasma to the necessary temperatures for fusion.
-    \item Cost Category 22.07.02 Pulsed Power Supply Systems. These provide high-power electrical pulses required for plasma initiation and shaping.
+    \item Cost Category 22.07.02 Pulsed Power Supply Systems. These provide high-power electrical pulses required for plasma initiation and shaping.  This is the dominant cost category here.  We have built 0.5MJ, 20kV, 500kA capacitor banks for 200k USD each, we multiply by 15 to get to the 6MJ needed for each pulse, and operate at 5kV to get lifetime needed for life of plant (see Fig. \ref{fig:derate}).  We further multiply the number of banks we need by 5 to get the charge timing.  Cost of this element is \$ C220702 M.
+
+
     \item Cost Category 22.07.03 Coil Power Supplies: These are crucial for large superconducting magnets, and copper coils for equilibrium control.
     \item Cost Category 22.07.04 Auxiliary Heating Power Supplies. These are used for additional plasma heating systems like ion cyclotron resonance heating (ICRH) and electron cyclotron resonance heating (ECRH).
     \item Cost Category 22.07.05 Cooling and Cryogenic Systems. To maintain the necessary low temperatures for the superconducting magnets and other components.
@@ -17,30 +19,19 @@ This category covers an extensive range of power supply systems critical for ope
 
 %need to escalate this cost relative to the 2011 data from ITER:
 %https://docs.google.com/spreadsheets/d/1MHiUnJ580Vxzbb7P5V9vQH0PnGHsuDlx/edit?usp=sharing&ouid=106425516412438351916&rtpof=true&sd=true
-Capacitor banks are needed for plasma generation and compression systems. The typical lifetime of high voltage capacitors is 500,000 shots for full charge operations. However, the lifetime of the capacitors can be drastically increased by operating at lower voltages than the maximum specification, scaling with $(V_{\text{max}}/V_{\text{operating}})^7$. Figures \ref{fig:1}, \ref{fig:2}, and \ref{fig:3} show the effects of derating the voltage - shown in each case along the abscissa is the ratio of the applied to rated voltage, which is 1 if caps are charged to maximum rating; then, the lifetime extension factor is seen to increase sharply. This extension factor is converted into lifetime and plotted as years in Fig. \ref{fig:2}. 20 years seems optimal since caps will degrade due to sealing materials failing. A 20 years lifetime is approximately at a derated voltage ratio of 0.33. Looking at the cost scaling in Fig. \ref{fig:3}, it can be seen that at 0.33, the cost increase factor is 9. This is computed on the basis that capacitance remains fixed, and total stored energy remains the same, in which case cost scales with $(V_{\text{max}}/V_{\text{operating}})^2$. A cost factor of 9 is therefore applied to the capacitor cost. Since this is only $(392k/853k =)$ 46 percent of the total installed cost, a cost factor of 4.7 is applied to the total installed cost, effectively increasing the 0.25 \$/J obtained from our installed cost analysis, giving a derated installed cost of 1.17 \$/J.
+%Cost basis is taken from ITER for a 500MW fusion system, scaling the 269.6kIUA (1kIUA is 2MUSD), giving 539M USD for a 500MW fusion system. 
 
-Cost basis is taken from ITER for a 500MW fusion system, scaling the 269.6kIUA (1kIUA is 2MUSD), giving 539M USD for a 500MW fusion system. The total cost is C220107 M USD for a PNRL MW fusion system.
+This system is costed in two main parts: a calculation of the power requirements and cost based on the details of the confinement system, and a top-down costing for the full electrical power supply and distribution system, scaled from ITER. For this external infrastructure required for ITER, a 500 MW fusion system, the total cost was 269.6kIUA or 539M USD. 
+We expect these FOAK costs to follow a usual learning curve for NOAK, and so apply an 80\% learning curve credit to the ITER cost. Thus, with the bottom-up component for the compression system, and the top-down component for external infrastructure, the total cost is found: for compression system power supplies, the cost is \$ C22010701 M, and \$ C22010702 M for the full electrical power supply and distribution system. 
 
+The total cost is therefore C220107 M USD for the PNRL MW fusion system presented here. 
 
-%\begin{figure}[h!]
-%    \centering
-%    \includegraphics[scale=0.4]{LEF_Numx.eps}
-%    \caption{Lifetime extension factor vs ratio of applied to rated voltage}
-%    \label{fig:1}
-%\end{figure}
-
-%\begin{figure}[h!]
-%    \centering
-%    \includegraphics[scale=0.4]{LOB_Numx.eps}
-%    \caption{Lifetime of bank in years, at 1Hz vs ratio of applied to rated voltage}
-%    \label{fig:2}
-%\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{Figures/cap_derate.pdf}
+    \caption{Lifetime extension factor vs ratio of applied to rated voltage.}
+    \label{fig:derate}
+\end{figure}
 
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale=0.4]{BCF_Numx.eps}
-%\caption{Bank cost factor vs ratio of applied to rated voltage}
-%\label{fig:3} 
-%\end{figure}
 
