@@ -1,133 +1,41 @@
-\subsubsection*{Cost Category 22.01.03: Coils}
+\subsubsection*{Cost Category 22.01.04: Supplementary Heating Systems.}
 
-This cost category includes the costing for the plasma confinement coils, including  material, structural and manufacturing cost. As a primary cost driver for this device, careful consideration of a number of parameters is taken, including the number of coils, the B$\times$R value ( in the case of the solenoid coils here), the conductor material, winding type, and quench mitigation in the case of superconducting cables.\\
+Supplementary heating systems in fusion, such as neutral beam injection and radio frequency (RF) heating, are critical for achieving the necessary plasma conditions for fusion. Neutral beam injection involves injecting high-energy neutral atoms into the plasma, on the other hand, RF heating uses electromagnetic waves to transfer energy to the plasma. These systems are essential for heating the plasma to the extremely high temperatures required for fusion reactions to occur efficiently.\\
 
-Consists of:
-
-\begin{itemize}
-    \item 22.1.3.1 Solenoid coils
-    \item 22.1.3.2 Mirror coils
-    \item 22.1.3.3 Shim coils
-    \item 22.1.3.4 Structural support
-\end{itemize}
-   
-
-The approach taken was to compare various geometries of HTS, LTS and copper coil sets using COMSOL, with the same central field and minimum inner radius requirements. These were down-selected to an HTS geometry with noCoil1Coils solenoid coils, and noCoil2Coils inner mirror coils and noCoil3Coils outer mirror coils.\\
-
-To determine the cost, the coil parameters were determined using a combination of COMSOL, calibration points from the literature including Menard 2016 \cite{Menard2016} for HTS, and EU DEMO for LTS, and analytical electromagnetic modeling. The material cost then then be determined through the mass/length (in the case of REBCO tape) of each material used. 
-
-To cost the magnet system, two steps are required. The first is to have the specifications of the magnets required, and the second is to calculate the resulting material requirements and costs, with a manufacturing factor applied to this total. In the costing code provided, four basic magnet types are available: HTS (CICC), HTS (pancake), LTS (CICC) and copper. In the standard code, as arguably the new industry standard, only HTS (CICC) includes both both steps of design and costing. For all others, the user will need to provide the following basic specifications to input into the code for a cost to be returned:
+Supplementary heating systems contains costs associated with heating and current drive systems, including 
 
 \begin{itemize}
-    \item Magnet coil counts: this input specifies the number of identical coils of each type.
-    \item Magnet type: specifies the magnet type of the four described above.
-    \item \textit{r} centre: the average radius of the coil.
-    \item \textit{z} centre: the displacement of the centre of the coil in the \textit{z} (vertical) axis.
-    \item \textit{dr}: the radial thickness of each coil.
-    \item \textit{dz}: the thickness of each coil in the \textit{z} axis.
-    \item Insulating material fraction: in the case of the pancake winding geometry, a "partial insulation" is used. Currently, the 'partial insulation' technology being developed by, for example, Tokamak Energy is proprietary and details are not publicly available. As such, for costing purposes, a fraction of fracIns of the total cross-sectional area is assumed to be insulating material, with a density similar to paraffin or epoxy, and a material cost of mcostI \$/kg. These values are purely indicative of an order-of-magnitude costing reference, and can be updated with more information as costing code inputs.
-    \item Manufacturing factor: a scalar multiplying factor which is applied to the total material cost of each coil, based upon the complexity and cost of winding and installing the coil. Default values are provided for each coil type. For HTS, for example, there has yet to be a commercially implemented CICC, so it is assumed that the cost of winding is comparable with that of LTS, which is widely available. 
-    \item Structural factor: another scalar multiplying factor applied to the total cost of the magnet (including manufacturing factor). This accounts for the direct structure required to support each magnet. Default values are provided here too, varying approximatley from 25-100\% of the base cost of the magnet.
+    \item 22.01.04.01 Neutral Beam Heating.   Neutral Beam Injection (NBI): This method involves injecting high-energy neutral atoms (typically hydrogen or deuterium) into the plasma. These neutral atoms penetrate the magnetic fields and, upon ionization, transfer their energy to the plasma particles, thereby heating the plasma.
+    \item 22.01.04.02 RF Heating.  Radio Frequency (RF) Heating: Uses electromagnetic waves to transfer energy directly to the plasma particles. Common methods include Ion Cyclotron Resonance Heating (ICRH), where ions absorb energy from the RF waves, and Electron Cyclotron Resonance Heating (ECRH), which targets electrons.
+    \item 22.01.04.03 Laser heating.  Can include laser heating of Maglif targets, or precursor lasers for shaping of the target.
+    \item 22.01.04.04 Other heating.  Can include schemes like novel electrostatic (biasing electrodes, pulsed, or oscillating electric fields) or time-varying magnetic (e.g. transit-time magnetic pumping).
 \end{itemize}
 
-For the purposes of clarity, and as a methodology guide for other coil types, the design approach for step 1 of the HTS (CICC) coils is as follows. The coil geometries and specifications as described in Menard 2016 \cite{Menard2016} as used as a calibration point. These specifications are then input into a Biot-Savart code that calculates the field at given coordinates. The coil is considered to comprise of N turns of current-carrying circular loops, with varying radii and \textit{r} and \textit{z} displacements. The total contributions of each concentric turn are then summed to determine the central field at \textit{r = 0}.
 
-Using these data, a SciPy interpolation function is used to determine the coil specifications required to achieve a given central field, constrained by the required average radius.
+The concept presented here will employ both NBI and ICRF supplementary heating systems. By comparing with prior studies (see table \ref{tab:supp_heat}), a top-down estimation can be found for each. For a 50 MW NBI system, the cost is 353 M USD, and for a 0 MW ICRF, the cost is 0 M USD, totalling 353 MUSD for the system.
 
-It should be noted that the default cable geometry as seen in \href{fig:yuhu_cs} is by no means optimised, and it is recommended that for minimal capital costs, a minimal length of REBCO and a maximum available current is used.
-
-
-\begin{figure}[h]
+\begin{table}[htbp]
     \centering
-    \includegraphics[width =0.5\linewidth]{StandardFigures/yuhu_cs.pdf}
-    \caption{HTS cable geometry.}
-    \label{fig:yuhu_cs}
-\end{figure}
-
-Another recommended approach is to employ a multi-physics FEM tool such as COMSOL to design the magnet with the required properties to obtain the inputs required for the costing code.
-
-It should be noted that a series of optimizations can be made to the design to reduce cost. The first of these is conductor grading. By reducing the number of strands of superconductor where the fields lower, up to 50\% of the superconducting material can be saved \cite{uglietti2018progressing}.\\
-
-The total cost of the coils is C220103 M USD.
-
-
-\subsubsection*{22.1.3.1 Solenoid coils}
-
-This design consists of notfcoils solenoid coils, which can be individually removed for maintenance. The total cost is C22010302 M USD.\\
-
-Both LTS and HTS cables can be considered here. For each, a wide variety of designs are available, including no-insulation, partial insulation, and an array of CICC geometries. For this concept, a simple CICC geometry is considered \cite{Menard2016}, comprising a layer of superconducting REBCO conductor, copper for quench mitigation and cooling, a central coolant channel, and a steel jacket to help resist the considerable forces experienced during operation. See \ref{fig:yuhu_cs} for the specific geometry.\\
-
-To cost the system, the magnet specifications are calibrated against \cite{Menard2016}, and extrapolated to the requirements of this concept. The total length of the conductor is then calculated and, assuming a cost of 12 \$/kAm, the total cost can be found. For the steel and copper, the volume is also found and multiplied by the cost per kilogram. This gives a total material cost for the coil, which is then multiplied by a manufacturing factor. The manufacturing factor comprises the cost of manufacturing the cables, then winding and installing the coils. \\
-
-The total cost of the solenoid coils is C22010301 M USD.
-
-
-\subsubsection*{22.1.3.2 Mirror Coils}
-
-This subsystem includes a large set of 20T HTS mirror coils at each end of the system. This central field strength is not achievable with copper magnets, meaning that HTS and LTS coils must be considered here. In this case, HTS coils are used, owing to their significantly increased current density, reducing the required number of turns and length of superconductor. This allows for a reduced form factor for the entire system, resulting in a multiplicative cost saving. In the case of the HTS magnets used in this system, a simple 'pancake' geometry is used, omitting the external conduit used in CICC geometries such as the VIPER or CORC cables. Instead, a "partial insulation" is used. Currently, the 'partial insulation' technology being developed by, for example, Tokamak Energy is proprietary and details are not publicly available. As such, for costing purposes, a fraction of fracIns of the total cross-sectional area is assumed to be insulating material, with a density similar to paraffin or epoxy, and a material cost of mcostI \$/kg. These values are purely indicative of an order-of-magnitude costing reference, and can be updated with more information as costing code inputs.
-
-The total cost of the mirror coils is C22010302 M USD. \\
-
-
-\subsubsection*{22.1.3.4 Shim Coils}
-
-These coils serve to apply fine adjustments to the field profile to maintain field uniformity, and control any plasma disturbances. The placement, size, and magnitude of these coils is dependent upon the uniformity requirements of the plasma, and requires sophisticated FEM analysis to accurately quantify. As such, for the scope of this costing report, a simple factor of 5\% of the total primary magnet costs is taken. The resulting cost is C22010303 M USD.\\
-
-\begin{table}[h]
-\centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{lcccccccccc}
-\hline
-\textbf{Parameter} & \textbf{Coil 1} & \textbf{Coil 2} & \textbf{Coil 3} & \textbf{Coil 4} & \textbf{Coil 5} & \textbf{Coil 6} & \textbf{Coil 7} & \textbf{Coil 8} & \textbf{Coil 9} & \textbf{Coil 10} \\
-\hline
-Magnet Type & magnetType1 & magnetType2 & magnetType3 & magnetType4 & magnetType5 & magnetType6 & magnetType7 & magnetType8 & magnetType9 & magnetType10 \\
-Radius (m) & rCentre1 & rCentre2 & rCentre3 & rCentre4 & rCentre5 & rCentre6 & rCentre7 & rCentre8 & rCentre9 & rCentre10 \\
-dr (m) & dr1 & dr2 & dr3 & dr4 & dr5 & dr6 & dr7 & dr8 & dr9 & dr10 \\
-dz (m) & dz1 & dz2 & dz3 & dz4 & dz5 & dz6 & dz7 & dz8 & dz9 & dz10 \\
-Current supply (MA) & currentSupply1 & currentSupply2 & currentSupply3 & currentSupply4 & currentSupply5 & currentSupply6 & currentSupply7 & currentSupply8 & currentSupply9 & currentSupply10 \\
-Cable current density (A/mm$^2$) & jCable1 & jCable2 & jCable3 & jCable4 & jCable5 & jCable6 & jCable7 & jCable8 & jCable9 & jCable10 \\
-Conductor current density (A/mm$^2$) & jTape1 & jTape2 & jTape3 & jTape4 & jTape5 & jTape6 & jTape7 & jTape8 & jTape9 & jTape10 \\
-Cable width (m) & cableW1 & cableW2 & cableW3 & cableW4 & cableW5 & cableW6 & cableW7 & cableW8 & cableW9 & cableW10 \\
-Cable height (m) & cableH1 & cableH2 & cableH3 & cableH4 & cableH5 & cableH6 & cableH7 & cableH8 & cableH9 & cableH10 \\
-Total volume (m$^3$) & volCoil1 & volCoil2 & volCoil3 & volCoil4 & volCoil5 & volCoil6 & volCoil7 & volCoil8 & volCoil9 & volCoil10 \\
-Cross-sectional area (m$^2$) & csArea1 & csArea2 & csArea3 & csArea4 & csArea5 & csArea6 & csArea7 & csArea8 & csArea9 & csArea10 \\
-Turn-turn Insulation Fraction & fracIns1 & fracIns2 & fracIns3 & fracIns4 & fracIns5 & fracIns6 & fracIns7 & fracIns8 & fracIns9 & fracIns10 \\
-\hline
-Cable turns & turnsC1 & turnsC2 & turnsC3 & turnsC4 & turnsC5 & turnsC6 & turnsC7 & turnsC8 & turnsC9 & turnsC10 \\
-Total turns of conductor & turnsScTot1 & turnsScTot2 & turnsScTot3 & turnsScTot4 & turnsScTot5 & turnsScTot6 & turnsScTot7 & turnsScTot8 & turnsScTot9 & turnsScTot10 \\
-Length of conductor (km) & tapeLength1 & tapeLength2 & tapeLength3 & tapeLength4 & tapeLength5 & tapeLength6 & tapeLength7 & tapeLength8 & tapeLength9 & tapeLength10 \\
-Current per conductor (A) & tapeCurrent1 & tapeCurrent2 & tapeCurrent3 & tapeCurrent4 & tapeCurrent5 & tapeCurrent6 & tapeCurrent7 & tapeCurrent8 & tapeCurrent9 & tapeCurrent10 \\
-\hline
-Cost of SC (M USD) & costSC1 & costSC2 & costSC3 & costSC4 & costSC5 & costSC6 & costSC7 & costSC8 & costSC9 & costSC10 \\
-Cost of copper (M USD) & costCu1 & costCu2 & costCu3 & costCu4 & costCu5 & costCu6 & costCu7 & costCu8 & costCu9 & costCu10 \\
-Cost of SS (M USD) & costSS1 & costSS2 & costSS3 & costSS4 & costSS5 & costSS6 & costSS7 & costSS8 & costSS9 & costSS10 \\
-Cost of other turn-turn insulation (M USD) & costI1 & costI2 & costI3 & costI4 & costI5 & costI6 & costI7 & costI8 & costI9 & costI10 \\
-Total material cost (M USD) & totMatCost1 & totMatCost2 & totMatCost3 & totMatCost4 & totMatCost5 & totMatCost6 & totMatCost7 & totMatCost8 & totMatCost9 & totMatCost10 \\
-Manufacturing factor & mfrFactor1 & mfrFactor2 & mfrFactor3 & mfrFactor4 & mfrFactor5 & mfrFactor6 & mfrFactor7 & mfrFactor8 & mfrFactor9 & mfrFactor10 \\
-Structural cost (M USD) & Coil1StructCost & Coil2StructCost & Coil3StructCost & Coil4StructCost & Coil5StructCost & Coil6StructCost & Coil7StructCost & Coil8StructCost & Coil9StructCost & Coil10StructCost \\
-Quantity & noCoil1Coils & noCoil2Coils & noCoil3Coils & noCoil4Coils & noCoil5Coils & noCoil6Coils & noCoil7Coils & noCoil8Coils & noCoil9Coils & noCoil10Coils \\
-Magnet cost (single)(M USD) & Coil1MagCost & Coil2MagCost & Coil3MagCost & Coil4MagCost & Coil5MagCost & Coil6MagCost & Coil7MagCost & Coil8MagCost & Coil9MagCost & Coil10MagCost \\
-Magnet + structure cost (single) (M USD) & totalCoil1CostI & totalCoil2CostI & totalCoil3CostI & totalCoil4CostI & totalCoil5CostI & totalCoil6CostI & totalCoil7CostI & totalCoil8CostI & totalCoil9CostI & totalCoil10CostI \\
-\hline
-Total cost (M USD) & totalCoil1Cost & totalCoil2Cost & totalCoil3Cost & totalCoil4Cost & totalCoil5Cost & totalCoil6Cost & totalCoil7Cost & totalCoil8Cost & totalCoil9Cost & totalCoil10Cost \\
-\hline
-\end{tabular}}
-\caption{Design parameters for an individual coil of each of the main coils in this concept.}
-\label{your-table-label}
+   
+    \begin{tabular}{lcccrr}
+        \hline
+        System & Type & Power (MW) & \$/W (2009) & \$/W (2023) \\
+        \hline
+        ARIES-AT & ICRF/LH & 37.4 & 1.67 & 2.39 \\
+        ARIES-I & ICRF/LH & 96.7 & 1.87 & 2.67 \\
+        ARIES-I' & ICRF/LH & 202 & 1.96 & 2.80 \\
+        ARIES-RS & ICRF/LH/HFFW & 80.8 & 3.09 & 4.42 \\
+        ARIES-IV & ICRF/LH & 68.0 & 4.35 & 6.22 \\
+        ARIES-II & ICRF/LH & 66.1 & 4.47 & 6.39 \\
+        ARIES-III' & NBI & 163 & 4.93 & 7.05 \\
+        ARIES-III & NBI & 172 & 4.95 & 7.08 \\
+        ITER & ICRF & & 5.5 & 7.87 \\
+        Average &  & 110 & 3.64 & 5.21 \\
+        Average (ICRF) &  & 91.9 & 2.90 & 4.15 \\
+        Average (NBI) &  & 167 & 4.94 & 7.06 \\
+        \hline
+    \end{tabular}
+     \caption{Power and Cost Data (Rounded to 3 Significant Figures)}
+    \label{tab:supp_heat}
 \end{table}
-
-
-\subsubsection*{22.1.3.5 Structural cost for coils}
-
-The structural cost for the coils is difficult to cost from first principles without detailed structural analysis with FEM. Here, the approach is a series of analytical estimations of the dominant stresses. These include:
-
-\begin{itemize}
-    \item Hoop stress within the coil generated by the cumulative effect of the induced force between concentric radial turns.
-    \item Axial force generated between cable turns within the coils. 
-    \item Axial force between adjacent coils.
-\end{itemize}
-
-
-By considering these primary contributions, an estimate of the structural material required (such as the hoop restraint requirements) can be calculated. From this preliminary estimate, a structural cost of 25\% of the coil cost is used as a conservative factor. This is in comparison to 50-100\% as the standard for Tokamaks. The structural cost is thus C22010304 M USD.
-
 
