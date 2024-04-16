@@ -5,7 +5,7 @@ The vacuum system in a nuclear fusion reactor plays a critical role in creating 
 \begin{itemize}
 \item 22.1.6.1 Vacuum Vessel.  The vacuum vessel is a sealed container designed to maintain a high vacuum environment, essential for minimizing interactions between the plasma and any residual gases, thus enabling controlled fusion reactions.
 
-\item 22.1.6.2 Helium Liquefier-Refrigerators. Helium liquefier-refrigerators are used to cool components of the reactor, such as superconducting magnets, to extremely low temperatures, often necessary for maintaining superconductivity and efficient thermal management.
+\item 22.1.6.2 Helium Liquefier-Refrigerators. Helium liquefier-refrigerators are used to cool components of the reactor, excluding cases where explicitly stated otherwise (e.g. confinement system and blanket). 
 
 \item 22.1.6.3 Primary Vacuum Pumps. Primary vacuum pumps are responsible for creating and maintaining the vacuum within the vessel by removing gases and air, which is crucial for the initial establishment of the vacuum environment.
 
@@ -33,7 +33,7 @@ The vacuum vessel serves as a  key structural element in the reactor, from which
     \item Magnetic loads. There are numerous magnetic loads that need to be accounted for. These are discussed in Section \ref{sec:22.1.5}.
 \end{itemize}
 
-When considering the geometry of the coil, a vacuum vessel CAD can be generated to wrap around the set of coils, with the basic design features adapted from MFTF-B \cite{gerich1986design}. The vessel parameters can be seen in table \ref{tab:ves_params}. For the coil geometry specified in Cost Category 22.1.3, a total material volume of materialvolume m$^3$ is calculated. ASTM A240 Type-304 stainless steel is used because it is nonmagnetic, has good fracture toughness and welding properties, is readily available and inexpensive, and a total mass of massstruct tons is required, costing vesmatcost M USD. Considering the manufacturing and assembly process, however, will increase the vessel cost significantly. One notable requirement is to polish the entire inner surface to maintain the required high vacuum, and reduce the risk of electrical faults. An approximate manufacturing factor of vesmfr is assumed for the entire process. This results in a cost for vacuum vessel of C22010601 M USD.
+When considering the geometry of the coil, a vacuum vessel CAD can be generated to wrap around the set of coils, with the basic design features adapted from MFTF-B \cite{gerich1986design}. The vessel parameters can be seen in table \ref{tab:ves_params}. ASTM A240 Type-304 stainless steel is used because it is nonmagnetic, has good fracture toughness and welding properties, is readily available and inexpensive, and a total mass of massstruct tons is required, costing vesmatcost M USD. Considering the manufacturing and assembly process, however, will increase the vessel cost significantly. One notable requirement is to polish the entire inner surface to maintain the required high vacuum, and reduce the risk of electrical faults. An approximate manufacturing factor of vesmfr is assumed for the entire process. This results in a cost for vacuum vessel of C22010601 M USD.
 
 
 \begin{table}[h]
@@ -42,7 +42,6 @@ When considering the geometry of the coil, a vacuum vessel CAD can be generated 
     \begin{tabular}{lc}
     \hline
         Vessel volume (m$^3$) & vesvol\\
-        Material volume (m$^3$) & materialvolume\\
         Material & ASTM A240 304 SS\\
         Material mass (tons) & massstruct\\
         Material cost (M USD) & vesmatcost\\
@@ -56,7 +55,7 @@ When considering the geometry of the coil, a vacuum vessel CAD can be generated 
 
 %Insert CAD model here
 
-22.1.6.2 Helium Liquefier-Refrigerators: This subsystem is the helium refrigeration and liquefaction process equipment. It is responsible for supplying the cooling necessary to maintain an operation temperature of 20 K at the coils. \\
+22.1.6.2 Helium Liquefier-Refrigerators: This subsystem is the helium refrigeration and liquefaction process equipment. It is responsible for supplying the cooling necessary to maintain an operation temperature of 20 K within the vacuum vessel. \\
 
 The costs for this subsystem are C22010601 M USD for the vacuum vessel, C22010602 M USD for the cooling systems, C22010603 M USD for the vacuum pumping systems, and C22010604 M USD for the roughing pump. The total cost is C220106 M USD.\\
 
