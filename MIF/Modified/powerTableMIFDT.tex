@@ -10,39 +10,39 @@
 \hline								
 1	&	\textbf{Fusion power}	&		&		&	\\
 \hline
-1.1	&	Fusion Power	&	$P_{{fusion}}$	&	2600	&	MW \\
-1.2	&	Alpha Power	&	$P_{{\alpha}}$	&	520.6	&	MW \\
-1.3	&	Neutron Power	&	$P_{{neutrons}}$	&	2079.4	&	MW \\
-1.4	&	Neutron Energy Multiplier	&	$M_N = P_{{TH}}/P_{{fusion}}$	&	1.1	&	\\
+1.1	&	Fusion Power	&	$P_{{fusion}}$	&	254.0	&	MW \\
+1.2	&	Alpha Power	&	$P_{{\alpha}}$	&	PALPHA	&	MW \\
+1.3	&	Neutron Power	&	$P_{{neutrons}}$	&	203.2	&	MW \\
+1.4	&	Neutron Energy Multiplier	&	$M_N = P_{{TH}}/P_{{fusion}}$	&	1.2	&	\\
 1.5	&	$P_{pump}$ capture efficiency	&	$\eta_{{pump}}$	&	0.5	&	\\
-1.6	&	Thermal Power	&	$P_{{TH}}$	&	2406.0	&	MW \\
+1.6	&	Thermal Power	&	$P_{{TH}}$	&	313.9	&	MW \\
 1.7	&	Thermal conversion efficiency	&	$\eta_{{TH}}$	&	0.5	&	\\
-1.8	&	Total (Gross) Electric Power	&	$P_{{ET}}$	&	1645.5	&	MW \\
-1.9	&	Lost Power	&	$P_{{Lost}}$	&	760.5	&	MW \\
+1.8	&	Total (Gross) Electric Power	&	$P_{{ET}}$	&	156.95	&	MW \\
+1.9	&	Lost Power	&	$P_{{Lost}}$	&	156.95	&	MW \\
 \hline								
 2	&	\textbf{Recirculating power}	&		&		&	\\
 \hline
-2.1	&	Power into coils 	&	$P_{{coils}} = P_{{cs}} + P_{{m}}+ P_{{d}}$	&	2	&	MW \\
-2.1.1 & Power into CS coil & $P_{\text{cs}}$ & 1 & MW \\
-2.1.2 & Power into Mirror coils & $P_{\text{m}_e}$ & 1 & MW \\
+2.1	&	Power into coils 	&	$P_{{coils}} = P_{{cs}} + P_{{m}}+ P_{{d}}$	&	PCOILS	&	MW \\
+2.1.1 & Power into CS coil & $P_{\text{cs}}$ & PTF & MW \\
+2.1.2 & Power into Mirror coils & $P_{\text{m}_e}$ & PPF & MW \\
 2.1.3 & Power into Divertor coils & $P_{\text{d}_e}$ & PD & MW \\
-2.2	&	Coolant Pumping Power Frac.	&	$f_{{pump}}$	&	0.1 &	\\
-2.2.1	&	Coolant Pumping Power	&	$P_{{pump}} = f_{{pump}} \cdot P_{{ET}}$	&	72.2	&	MW \\
-2.3	&	Subsystem and Control Fraction	&	$f_{{sub}}$	&	0.0	&	\\
-2.3.1	&	Subsystem and Control Power	&	$P_{{sub}} + P_{{control}} = f_{{sub}} \cdot P_{{ET}}$	&	36.1	&	MW \\
-2.4	&	Auxiliary systems	&	$P_{{aux}} = P_{{t}} + P_{{h}}$	&	14.0	&	MW \\
-2.4.1	&	Tritium Systems	&	$P_{{t}}$	&	10.0	&	MW \\
+2.2	&	Coolant Pumping Power Frac.	&	$f_{{pump}}$	&	0.05 &	\\
+2.2.1	&	Coolant Pumping Power	&	$P_{{pump}} = f_{{pump}} \cdot P_{{ET}}$	&	7.85	&	MW \\
+2.3	&	Subsystem and Control Fraction	&	$f_{{sub}}$	&	0.02	&	\\
+2.3.1	&	Subsystem and Control Power	&	$P_{{sub}} + P_{{control}} = f_{{sub}} \cdot P_{{ET}}$	&	3.14	&	MW \\
+2.4	&	Auxiliary systems	&	$P_{{aux}} = P_{{t}} + P_{{h}}$	&	9.0	&	MW \\
+2.4.1	&	Tritium Systems	&	$P_{{t}}$	&	5	&	MW \\
 2.4.2	&	Housekeeping power	&	$P_{{h}}$	&	4.0	&	MW \\
-2.5	&	Cooling systems	&	$P_{cool} = P_{{M}_c} + P_{{S}_c} + P_{{D}_c}+ P_{{C}_c}$	&	23.7	&	MW \\
-2.5.1	&	Mirror coil cooling	&	$P_{{M}_c}$	&	12.7	&	MW \\
-2.5.2	&	Solenoid coil cooling	&	$P_{{S}_c}$	&	11	&	MW \\
+2.5	&	Cooling systems	&	$P_{cool} = P_{{M}_c} + P_{{S}_c} + P_{{D}_c}+ P_{{C}_c}$	&	0	&	MW \\
+2.5.1	&	Mirror coil cooling	&	$P_{{M}_c}$	&	PTFCOOL	&	MW \\
+2.5.2	&	Solenoid coil cooling	&	$P_{{S}_c}$	&	PPFCOOL	&	MW \\
 2.5.3 & Divertor coil cooling & $P_{\text{D}_c}$ & PCCOOL & MW \\
 2.5.4	&	Compression system cooling	&	$P_{{C}_c}$	&	PCOMCOOL	&	MW \\
-2.5.5	&	Cryo vacuum pumping	&	$P_{{p}_c}$	&	3.7	&	MW \\
-2.6	& Input power	& $P_{IN} = P_{comp}-P_{{rec}} + P_{tar}$	&	50	&	MW \\
-2.6.1	&	Compression system efficiency	&	$\eta_{{comp}}$	&	ETACOMP	&	\\
+2.5.5	&	Cryo vacuum pumping	&	$P_{{p}_c}$	&	0.5	&	MW \\
+2.6	& Input power	& $P_{IN} = P_{comp}-P_{{rec}} + P_{tar}$	&	252.63	&	MW \\
+2.6.1	&	Compression system efficiency	&	$\eta_{{comp}}$	&	0.9OMP	&	\\
 2.6.2	&	Power into compression system	&	$P_{{comp}}$	&	PCOMP	&	MW \\
-2.6.3	&	Recovery efficiency	&	$\eta_{{rec}}$	&	ETACOMPREC	&	 \\
+2.6.3	&	Recovery efficiency	&	$\eta_{{rec}}$	&	0.9OMPREC	&	 \\
 2.6.4	&	Recovered power	&	$P_{{rec}}$	&	PREC	&	MW \\
 2.6.5	&	Plasma target formation	&	$P_{{tar}}$	&	PTARGET	&	MW \\
 2.6.6	&	Target formation efficiency	&	$\eta_{tar}$	&	ETATARGET	&	 \\
@@ -50,10 +50,10 @@
 \hline								
 3	&	\textbf{Output power}	&		&		&	\\
 \hline
-3.1	&	Scientific Q	&	$Q = P_{{fusion}}/P_{{IN}}$	&	52.0	&	\\
-3.2	&	Engineering Q	&	$Q_{{E}}$	&	6.5	&	\\
-3.3	&	Recirculating power fraction	&	$\epsilon = 1/Q_{{E}}$	&	0.2	&	\\
-3.4	&	Net Electric Power	&	$P_{{E}} = (1 - \epsilon) \cdot P_{{ET}}$	&	1394.1	&	MW \\
+3.1	&	Scientific Q	&	$Q = P_{{fusion}}/P_{{IN}}$	&	20.11	&	\\
+3.2	&	Engineering Q	&	$Q_{{E}}$	&	4.66	&	\\
+3.3	&	Recirculating power fraction	&	$\epsilon = 1/Q_{{E}}$	&	0.21	&	\\
+3.4	&	Net Electric Power	&	$P_{{E}} = (1 - \epsilon) \cdot P_{{ET}}$	&	123.3	&	MW \\
 \hline								
 \end{tabular}	
 \caption{Power balance for a pulsed magnetic fusion energy system using cyclic compression with some recovery of the compression energy.}
