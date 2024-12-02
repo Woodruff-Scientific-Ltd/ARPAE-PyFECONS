@@ -1,4 +1,4 @@
-Watch a tutorial video to set up the Google Colab version of the code [here](https://drive.google.com/drive/folders/0ADwF8zD9TTdyUk9PVA)
+Watch a tutorial video to set up the Google Colab version of the code [here](https://drive.google.com/file/d/1MRDYc_bRSkRC2XtKecAPMbbZGHeh1iEY/view?usp=sharing).
 
 This Github contains a folder for each base case, and one for the benchmark cases. Each folder contains the code in a .ipynb file, the template text for each cost category in the 'Originals' folder, and other files required for the latex document to compile. To generate a report:
 
